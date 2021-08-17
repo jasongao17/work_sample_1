@@ -1,0 +1,73 @@
+DEFINE PLAYER {
+    HEALTH 100;
+    ATTACK 25;
+    DEFENCE 10;
+}
+
+DEFINE SLIME slimey {
+    HEALTH 100;
+    ATTACK 10;
+    DEFENCE 15;
+    PATH []
+}
+
+DEFINE SKELETON skeleton1 {
+    HEALTH 200;
+    ATTACK 30;
+    DEFENCE 0;
+    PATH [UP, DOWN, LEFT, RIGHT]
+}
+
+DEFINE SKELETON skeleton2 {
+    HEALTH 150;
+    ATTACK 40;
+    DEFENCE 0;
+    PATH []
+}
+DEFINE DUNGEON excercise (11, 10) {
+    START (0, 5);
+    GOAL (10, 8);
+
+    WALL RIGHT (0, 0) 7;
+    WALL DOWN (0, 1) 4;
+    WALL RIGHT (1, 4) 4;
+    WALL DOWN (4, 1) 2;
+    KEY RED (1, 1);
+    MONSTER skeleton1 (2, 2);
+
+    WALL DOWN (0, 6) 4;
+    WALL RIGHT (1, 6) 3;
+    WALL RIGHT (1, 9) 10;
+    WALL UP (5, 8) 3;
+    KEY BLUE (1, 8);
+    COIN (1, 7);
+    COIN (2, 8);
+    HEAL_POT (2, 7) 30;
+    HP_MAX (3, 8) 20;
+    COIN (3, 7);
+    COIN (4, 8);
+    DOOR GREEN (4, 6);
+
+    KEY GREEN (5, 1);
+    DOOR RED (5, 2);
+    WALL DOWN (6, 1) 4;
+
+    WALL RIGHT (7, 4) 4;
+    WALL (7, 5);
+    DEF_MAX (8, 5) 10;
+    ATK_MAX (8, 6) 15;
+    COIN (9, 5);
+    KEY RED (9, 6);
+    MONSTER slimey (7, 6);
+    WALL DOWN (10, 5) 3;
+
+    WALL LEFT (9, 7) 3;
+    DOOR BLUE (9, 8);
+    MONSTER skeleton2 (8, 8);
+    DOOR RED (7, 8);
+
+    DELETE RIGHT (7, 0) 4;
+    DELETE RIGHT (7, 1) 4;
+    DELETE RIGHT (7, 2) 4;
+    DELETE RIGHT (7, 3) 4;
+}

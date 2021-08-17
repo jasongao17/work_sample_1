@@ -1,0 +1,138 @@
+DEFINE PLAYER {
+    HEALTH 300;
+    ATTACK 25;
+    DEFENCE 20;
+}
+
+DEFINE SLIME slimey {
+    HEALTH 80;
+    ATTACK 10;
+    DEFENCE 20;
+    PATH []
+}
+
+DEFINE SLIME slim {
+    HEALTH 85;
+    ATTACK 10;
+    DEFENCE 20;
+    PATH [DOWN, DOWN, DOWN, DOWN, UP, UP, UP, UP]
+}
+
+DEFINE SLIME lils {
+    HEALTH 85;
+    ATTACK 5;
+    DEFENCE 20;
+    PATH [DOWN, DOWN, DOWN, DOWN, UP, UP, UP, UP]
+}
+
+DEFINE SKELETON skeleton {
+    HEALTH 100;
+    ATTACK 20;
+    DEFENCE 30;
+    PATH []
+}
+
+DEFINE SKELETON lilskelly {
+    HEALTH 100;
+    ATTACK 20;
+    DEFENCE 30;
+    PATH []
+}
+
+DEFINE SKELETON skelly {
+    HEALTH 100;
+    ATTACK 20;
+    DEFENCE 30;
+    PATH [LEFT, LEFT, RIGHT, RIGHT]
+}
+
+DEFINE BOSS boss 1 {
+    HEALTH 1000;
+    ATTACK 30;
+    DEFENCE 25;
+    PATH [LEFT, LEFT, RIGHT, RIGHT]
+}
+
+DEFINE DUNGEON my_great_level_1 (15, 15) {
+    START (0, 0);
+    GOAL (14, 10);
+
+    WALL (11, 2);
+
+    WALL LEFT (7, 7) 8;
+    WALL LEFT (3, 5) 4;
+    WALL UP (5, 6) 2;
+    WALL LEFT (3, 10) 4;
+    WALL LEFT (3, 12) 4;
+    WALL UP (5, 14) 6;
+    WALL UP (7, 14) 6;
+    WALL UP (9, 1) 2;
+    WALL DOWN (11, 0) 2;
+    WALL RIGHT (2, 3) 8;
+    WALL DOWN (1, 0) 4;
+    WALL RIGHT (11, 9) 4;
+    WALL RIGHT (11, 11) 4;
+
+    DEF_MAX (2, 13) 50;
+    HP_MAX (3, 2) 100;
+    HP_MAX (1, 6) 100;
+    ATK_MAX (4, 6) 25;
+    ATK_MAX (10, 2) 20;
+    HEAL_POT (10, 9) 200;
+
+    MONSTER boss 1 (11, 10);
+    MONSTER skeleton (3, 6);
+    MONSTER skelly (3, 11);
+    MONSTER slim (4, 9);
+    MONSTER slimey (6, 11);
+    MONSTER lils (9,6);
+
+    DOOR BLUE (6, 10);
+    DOOR RED (4, 5);
+    DOOR GREEN (10, 1);
+    DOOR BLUE (13, 10);
+    DOOR GREEN (6, 12);
+    DOOR RED (9, 2);
+
+    KEY RED (12, 10);
+    KEY RED (3, 0);
+    KEY BLUE (8, 0);
+    KEY RED (6, 14);
+    KEY BLUE (10, 0);
+    KEY GREEN (4, 14);
+    KEY GREEN (0, 11);
+
+    COIN (6, 0);
+    COIN (0, 6);
+    COIN (2, 6);
+    COIN (6, 13);
+
+    DELETE DOWN (14, 6) 3;
+}
+
+DEFINE DUNGEON my great level 2 (8, 8) {
+    START (1, 2);
+    GOAL (6, 6);
+
+    COIN (2, 3);
+
+    WALL DOWN (0, 0) 8;
+    WALL RIGHT (1, 7) 7;
+    WALL UP (7, 6) 4;
+    WALL LEFT (5, 0) 5;
+    WALL DOWN (5, 1) 3;
+    WALL (6, 3);
+
+    DOOR RED (3, 5);
+    DOOR RED (3, 6);
+    DOOR BLUE (4, 5);
+    KEY RED (5, 5);
+    DOOR GREEN (6, 5);
+    DOOR BLUE (5, 6);
+    KEY GREEN (4, 6);
+
+    MONSTER lilskelly (6, 4);
+
+    DELETE DOWN (6, 0) 3;
+    DELETE DOWN (7, 0) 3;
+}
